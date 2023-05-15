@@ -15,13 +15,25 @@ import { preFetchLib, bindVueRuntime } from "hel-micro";
   ).replace(/\/$/, "");
 
   console.log('[cwf-hel-vite-vue3-demo-host] enable_custom', enable_custom)
-  console.log('[cwf-hel-vite-vue3-demo-host] host', host)
+  console.log('[cwf-hel-vite-vue3-demo-host] remote host', host)
 
   await preFetchLib(CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE, {
     custom: {
       host,
       skipFetchHelMeta: true,
       enable: enable_custom,
+    },
+    hook: {
+      beforeAppendAssetNode(passCtx) {
+        debugger
+        console.log('passCtx', passCtx)
+        // const { url, setAssetUrl } = passCtx;
+        // https://unpkg.com/remote-vue-project@1.0.6/hel_dist/css/27.aea1e7be.css
+        // --->
+        // https://cdn.jsdelivr.net/npm/remote-vue-project@1.0.6/hel_dist/css/27.aea1e7be.css
+        // const jsdelivrUrl = url.replace('https://unpkg.com', 'https://cdn.jsdelivr.net/npm');
+        // setAssetUrl(jsdelivrUrl);
+      },
     },
   });
 
