@@ -1,0 +1,25 @@
+{
+  "name": "cwf-hel-vite-vue3-demo-utils",
+  "version": "1.0.0",
+  "description": "common uitls",
+  "main": "./dist/index.js",
+  "module": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p ./tsconfig.json"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.js"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/http-proxy": "^1.17.11",
+    "http-proxy": "^1.18.1",
+    "typescript": "^5.0.4"
+  }
+}

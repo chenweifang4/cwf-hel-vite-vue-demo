@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "strict": true,
+    "declaration": true,
+    "lib": ["esnext", "dom"],
+  },
+  "include": ["src/**/*"]
+}

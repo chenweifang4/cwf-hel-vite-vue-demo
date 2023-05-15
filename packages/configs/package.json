@@ -1,0 +1,26 @@
+{
+  "name": "cwf-hel-vite-vue3-demo-configs",
+  "version": "1.0.0",
+  "description": "common configs",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.0",
+    "rollup": "^3.21.0",
+    "tslib": "^2.5.0",
+    "typescript": "^5.0.4"
+  }
+}
