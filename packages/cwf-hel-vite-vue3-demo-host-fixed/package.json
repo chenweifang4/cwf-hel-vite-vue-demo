@@ -1,0 +1,32 @@
+{
+  "name": "cwf-hel-vite-vue3-demo-host-patch",
+  "appGroupName": "cwf-hel-vite-vue3-demo-host-patch",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "build:proxy": "rollup -c",
+    "preview": "cross-env node scripts/serve.mjs"
+  },
+  "dependencies": {
+    "cwf-hel-vite-vue3-demo-configs": "workspace:*",
+    "cwf-hel-vite-vue3-demo-remote": "workspace:*",
+    "cwf-hel-vite-vue3-demo-utils": "workspace:*",
+    "hel-iso": "^4.3.2",
+    "hel-lib-proxy": "^4.7.2",
+    "hel-micro": "^4.7.3",
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.0",
+    "@vitejs/plugin-legacy": "^4.0.3",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "cross-env": "^7.0.3",
+    "hel-dev-utils": "^4.3.17",
+    "rollup": "^3.21.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.2",
+    "vue-tsc": "^1.4.2"
+  }
+}
