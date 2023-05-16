@@ -1,6 +1,8 @@
 {
   "name": "cwf-hel-vite-vue3-demo-remote",
   "appGroupName": "cwf-hel-vite-vue3-demo-remote",
+  "main": "./hel_proxy/entry.js",
+  "module": "./hel_proxy_es/entry.js",
   "private": true,
   "version": "1.0.0",
   "scripts": {
