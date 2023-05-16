@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vue-tsc && vite build && pnpm build:proxy",
     "build:proxy": "rollup -c",
-    "preview": "cross-env node scripts/serve.mjs"
+    "preview": "cross-env node scripts/serve.mjs",
+    "format": "cross-env prettier ./src/*  --write"
   },
   "dependencies": {
     "cwf-hel-vite-vue3-demo-configs": "workspace:*",

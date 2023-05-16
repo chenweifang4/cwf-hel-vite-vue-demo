@@ -1,21 +1,31 @@
 import { isMasterApp } from "hel-iso";
 import { libReady } from "hel-lib-proxy";
-import { CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_HOST_PATCH, CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE, getConfigHost } from "cwf-hel-vite-vue3-demo-configs";
+import {
+  CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_HOST_PATCH,
+  CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE,
+  getConfigHost,
+} from "cwf-hel-vite-vue3-demo-configs";
 
 import { preFetchLib, bindVueRuntime } from "hel-micro";
 
 (async function () {
   const lib_properties = await import("./entrance/lib-properties");
   // 注意此处传递的是 default
-  libReady(CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_HOST_PATCH, lib_properties.default);
+  libReady(
+    CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_HOST_PATCH,
+    lib_properties.default
+  );
 
   const enable_custom = !!window.location.port;
   const host = getConfigHost(
-    CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE,
+    CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE
   ).replace(/\/$/, "");
 
-  console.log('[cwf-hel-vite-vue3-demo-host-patch] enable_custom', enable_custom)
-  console.log('[cwf-hel-vite-vue3-demo-host-patch] remote host', host)
+  console.log(
+    "[cwf-hel-vite-vue3-demo-host-patch] enable_custom",
+    enable_custom
+  );
+  console.log("[cwf-hel-vite-vue3-demo-host-patch] remote host", host);
 
   await preFetchLib(CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE, {
     custom: {
@@ -25,8 +35,8 @@ import { preFetchLib, bindVueRuntime } from "hel-micro";
     },
     hook: {
       beforeAppendAssetNode(passCtx) {
-        debugger
-        console.log('passCtx', passCtx)
+        debugger;
+        console.log("passCtx", passCtx);
         // const { url, setAssetUrl } = passCtx;
         // https://unpkg.com/remote-vue-project@1.0.6/hel_dist/css/27.aea1e7be.css
         // --->

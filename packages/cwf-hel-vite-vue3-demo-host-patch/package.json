@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "build:proxy": "rollup -c",
-    "preview": "cross-env node scripts/serve.mjs"
+    "preview": "cross-env node scripts/serve.mjs",
+    "format": "cross-env prettier ./src/*  --write"
   },
   "dependencies": {
     "cwf-hel-vite-vue3-demo-configs": "workspace:*",
@@ -16,6 +17,8 @@
     "hel-iso": "^4.3.2",
     "hel-lib-proxy": "^4.7.2",
     "hel-micro": "^4.7.3",
+    "hel-types": "^4.3.1",
+    "htmlparser2": "^9.0.0",
     "vue": "^3.2.47"
   },
   "devDependencies": {

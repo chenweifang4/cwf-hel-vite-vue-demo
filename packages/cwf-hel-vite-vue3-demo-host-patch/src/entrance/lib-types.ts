@@ -20,6 +20,8 @@ export type CompTypes = {
 /**
  * 将提供给用户的lib暴露出去（同时也暴露了类型）
  */
-export const dtlib = exposeLib<CompTypes>(CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_HOST_PATCH);
+export const dtlib = exposeLib<CompTypes>(
+  CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_HOST_PATCH
+);
 
 export default dtlib;
