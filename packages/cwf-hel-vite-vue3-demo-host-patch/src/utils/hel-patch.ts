@@ -2,7 +2,6 @@ import * as htmlparser2 from "htmlparser2";
 import type { IAssetItem, IAssetItemAttrs } from "hel-types";
 
 export function parseHtml(html: string) {
-  debugger;
   let isHeadOpen = true;
   const headAssetList: IAssetItem[] = [];
   const bodyAssetList: IAssetItem[] = [];
