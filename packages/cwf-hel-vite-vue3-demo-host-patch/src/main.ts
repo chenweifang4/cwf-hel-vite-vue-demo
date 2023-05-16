@@ -8,6 +8,13 @@ import {
 
 import { preFetchLib, bindVueRuntime } from "hel-micro";
 import { parseHtml } from "@/utils/hel-patch";
+import * as Vue from "vue";
+
+// debugger;
+
+console.log("Vue", Vue);
+
+bindVueRuntime({ Vue });
 
 (async function () {
   const lib_properties = await import("./entrance/lib-properties");

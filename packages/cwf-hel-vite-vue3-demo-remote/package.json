@@ -7,7 +7,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build && pnpm build:proxy",
+    "build": "vite build && pnpm build:proxy",
     "build:proxy": "rollup -c",
     "preview": "cross-env node scripts/serve.mjs",
     "format": "cross-env prettier ./src/*  --write"

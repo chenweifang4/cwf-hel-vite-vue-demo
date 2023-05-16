@@ -1,8 +1,16 @@
 import { fileURLToPath, URL } from "node:url";
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { CONFIG_ENV_DEVELOPMENT, CONFIG_ENV_LOCAL, getConfigHost, CONFIG_PATH_PREFIX, CONFIG_DEV_HOST_PORT, CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE  } from 'cwf-hel-vite-vue3-demo-configs'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import {
+  CONFIG_ENV_DEVELOPMENT,
+  CONFIG_ENV_LOCAL,
+  getConfigHost,
+  CONFIG_PATH_PREFIX,
+  CONFIG_DEV_HOST_PORT,
+  CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE,
+} from "cwf-hel-vite-vue3-demo-configs";
 import legacy from "@vitejs/plugin-legacy";
+import viteCDNPlugin from "vite-plugin-cdn-import";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -12,12 +20,23 @@ export default defineConfig(({ mode }) => {
       : getConfigHost(CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE, CONFIG_ENV_LOCAL);
 
   return {
-   base,
+    base,
     plugins: [
       vue(),
       legacy({
         targets: ["defaults", "not IE 11"],
-      })
+      }),
+      viteCDNPlugin({
+        // 需要 CDN 加速的模块
+        modules: [
+          {
+            name: "vue",
+            var: "Vue",
+            path: "",
+            // path: `https://unpkg.com/vue@3.2.27/dist/vue.runtime.global.prod.js`,
+          },
+        ],
+      }),
     ],
     server: {
       host: "0.0.0.0",
@@ -28,5 +47,11 @@ export default defineConfig(({ mode }) => {
         "@": fileURLToPath(new URL("./src", import.meta.url)),
       },
     },
-  }
-})
+    build: {
+      sourcemap: true,
+      rollupOptions: {
+        external: ["vue"],
+      },
+    },
+  };
+});
