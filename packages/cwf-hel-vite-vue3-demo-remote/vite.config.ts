@@ -32,8 +32,8 @@ export default defineConfig(({ mode }) => {
           {
             name: "vue",
             var: "Vue",
-            path: "",
-            // path: `https://unpkg.com/vue@3.2.27/dist/vue.runtime.global.prod.js`,
+            // path: "",
+            path: `https://unpkg.com/vue@3.2.27/dist/vue.runtime.global.prod.js`,
           },
         ],
       }),
