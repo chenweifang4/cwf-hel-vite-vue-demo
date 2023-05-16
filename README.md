@@ -22,3 +22,10 @@ pnpm preview
 cd /packages/cwf-hel-vite-vue3-demo-host
 pnpm dev
 ```
+
+## cwf-hel-vite-vue3-demo-host-patch
+
+```bash
+cd /packages/cwf-hel-vite-vue3-demo-host-patch
+pnpm dev
+```
