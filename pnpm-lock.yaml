@@ -2,7 +2,11 @@ lockfileVersion: '6.0'
 
 importers:
 
-  .: {}
+  .:
+    devDependencies:
+      prettier:
+        specifier: ^2.8.8
+        version: 2.8.8
 
   packages/configs:
     devDependencies:
@@ -35,10 +39,68 @@ importers:
         version: 4.3.2
       hel-lib-proxy:
         specifier: ^4.7.2
-        version: 4.7.2(hel-micro-core@4.7.2)(hel-types@4.3.0)
+        version: 4.7.2(hel-micro-core@4.7.2)(hel-types@4.3.1)
       hel-micro:
         specifier: ^4.7.3
-        version: 4.7.3(hel-micro-core@4.7.2)(hel-types@4.3.0)
+        version: 4.7.3(hel-micro-core@4.7.2)(hel-types@4.3.1)
+      vue:
+        specifier: ^3.2.47
+        version: 3.2.47
+    devDependencies:
+      '@rollup/plugin-typescript':
+        specifier: ^11.1.0
+        version: 11.1.0(rollup@3.21.7)(tslib@2.5.0)(typescript@5.0.4)
+      '@vitejs/plugin-legacy':
+        specifier: ^4.0.3
+        version: 4.0.3(terser@5.17.3)(vite@4.3.2)
+      '@vitejs/plugin-vue':
+        specifier: ^4.1.0
+        version: 4.1.0(vite@4.3.2)(vue@3.2.47)
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
+      hel-dev-utils:
+        specifier: ^4.3.17
+        version: 4.3.17(jsdom@15.2.1)
+      rollup:
+        specifier: ^3.21.0
+        version: 3.21.7
+      typescript:
+        specifier: ^5.0.2
+        version: 5.0.4
+      vite:
+        specifier: ^4.3.2
+        version: 4.3.2(terser@5.17.3)
+      vue-tsc:
+        specifier: ^1.4.2
+        version: 1.4.2(typescript@5.0.4)
+
+  packages/cwf-hel-vite-vue3-demo-host-patch:
+    dependencies:
+      cwf-hel-vite-vue3-demo-configs:
+        specifier: workspace:*
+        version: link:../configs
+      cwf-hel-vite-vue3-demo-remote:
+        specifier: workspace:*
+        version: link:../cwf-hel-vite-vue3-demo-remote
+      cwf-hel-vite-vue3-demo-utils:
+        specifier: workspace:*
+        version: link:../utils
+      hel-iso:
+        specifier: ^4.3.2
+        version: 4.3.2
+      hel-lib-proxy:
+        specifier: ^4.7.2
+        version: 4.7.2(hel-micro-core@4.7.2)(hel-types@4.3.1)
+      hel-micro:
+        specifier: ^4.7.3
+        version: 4.7.3(hel-micro-core@4.7.2)(hel-types@4.3.1)
+      hel-types:
+        specifier: ^4.3.1
+        version: 4.3.1
+      htmlparser2:
+        specifier: ^9.0.0
+        version: 9.0.0
       vue:
         specifier: ^3.2.47
         version: 3.2.47
@@ -84,7 +146,7 @@ importers:
         version: 4.3.2
       hel-lib-proxy:
         specifier: ^4.7.2
-        version: 4.7.2(hel-micro-core@4.7.2)(hel-types@4.3.0)
+        version: 4.7.2(hel-micro-core@4.7.2)(hel-types@4.3.1)
       vue:
         specifier: ^3.2.47
         version: 3.2.47
@@ -2059,11 +2121,38 @@ packages:
     engines: {node: '>=0.4.0'}
     dev: true
 
+  /dom-serializer@2.0.0:
+    resolution: {integrity: sha512-wIkAryiqt/nV5EQKqQpo3SToSOV9J0DnbJqwK7Wv/Trc92zIAYZ4FlMu+JPFW1DfGFt81ZTCGgDEabffXeLyJg==}
+    dependencies:
+      domelementtype: 2.3.0
+      domhandler: 5.0.3
+      entities: 4.5.0
+    dev: false
+
+  /domelementtype@2.3.0:
+    resolution: {integrity: sha512-OLETBj6w0OsagBwdXnPdN0cnMfF9opN69co+7ZrbfPGrdpPVNBUj02spi6B1N7wChLQiPn4CSH/zJvXw56gmHw==}
+    dev: false
+
   /domexception@1.0.1:
     resolution: {integrity: sha512-raigMkn7CJNNo6Ihro1fzG7wr3fHuYVytzquZKX5n0yizGsTcYgzdIUwj1X9pK0VvjeihV+XiclP+DjwbsSKug==}
     dependencies:
       webidl-conversions: 4.0.2
     dev: true
+
+  /domhandler@5.0.3:
+    resolution: {integrity: sha512-cgwlv/1iFQiFnU96XXgROh8xTeetsnJiDsTc7TYCLFd9+/WNkIqPTxiM/8pSd8VIrhXGTf1Ny1q1hquVqDJB5w==}
+    engines: {node: '>= 4'}
+    dependencies:
+      domelementtype: 2.3.0
+    dev: false
+
+  /domutils@3.1.0:
+    resolution: {integrity: sha512-H78uMmQtI2AhgDJjWeQmHwJJ2bLPD3GMmO7Zja/ZZh84wkm+4ut+IUnUdRa8uCGX88DiVx1j6FRe1XfxEgjEZA==}
+    dependencies:
+      dom-serializer: 2.0.0
+      domelementtype: 2.3.0
+      domhandler: 5.0.3
+    dev: false
 
   /ecc-jsbn@0.1.2:
     resolution: {integrity: sha512-eh9O+hwRHNbG4BLTjEl3nw044CkGm5X6LoaCf7LPp7UU8Qrt47JYNi6nPX8xjW97TKGKm1ouctg0QSpZe9qrnw==}
@@ -2075,6 +2164,11 @@ packages:
   /electron-to-chromium@1.4.394:
     resolution: {integrity: sha512-0IbC2cfr8w5LxTz+nmn2cJTGafsK9iauV2r5A5scfzyovqLrxuLoxOHE5OBobP3oVIggJT+0JfKnw9sm87c8Hw==}
     dev: true
+
+  /entities@4.5.0:
+    resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
+    engines: {node: '>=0.12'}
+    dev: false
 
   /esbuild@0.17.19:
     resolution: {integrity: sha512-XQ0jAPFkK/u3LcVRcvVHQcTIqD6E2H1fvZMA5dQPSOWb3suUbWbfbRf94pjc0bNzRYLfIrDRQXr7X+LHIm5oHw==}
@@ -2267,36 +2361,37 @@ packages:
     resolution: {integrity: sha512-CZ9BRNt1GMaHdKu7lVhKXLnNIJe2NMQSe4I/74X1vla0OOPOhxbZZ+fG2ydnI7mivVhNEA4QYKRrcMrWulN9Hw==}
     dev: false
 
-  /hel-lib-proxy@4.7.2(hel-micro-core@4.7.2)(hel-types@4.3.0):
+  /hel-lib-proxy@4.7.2(hel-micro-core@4.7.2)(hel-types@4.3.1):
     resolution: {integrity: sha512-xra/9OJFUkRlq27JEzekSb8NS2eayx2acEoEgb2qdostNcfjRvNWq1mywncTzaF//CQHi19wsSOujZg5KGgI4w==}
     peerDependencies:
       hel-micro-core: ^4.7.2
       hel-types: ^4.3.0
     dependencies:
-      hel-micro-core: 4.7.2(hel-types@4.3.0)
-      hel-types: 4.3.0
+      hel-micro-core: 4.7.2(hel-types@4.3.1)
+      hel-types: 4.3.1
     dev: false
 
-  /hel-micro-core@4.7.2(hel-types@4.3.0):
+  /hel-micro-core@4.7.2(hel-types@4.3.1):
     resolution: {integrity: sha512-QL0HZkFbZY1wSEdJ7IBbg81TC/LzBYe+EqxfAbuhKP8KyiQoWAxg8+fjXt4DP0OGFay0i9z9QrFc6CXJxGbABg==}
     peerDependencies:
       hel-types: ^4.3.0
     dependencies:
-      hel-types: 4.3.0
+      hel-types: 4.3.1
     dev: false
 
-  /hel-micro@4.7.3(hel-micro-core@4.7.2)(hel-types@4.3.0):
+  /hel-micro@4.7.3(hel-micro-core@4.7.2)(hel-types@4.3.1):
     resolution: {integrity: sha512-+LHxVIPVWVt0pLGjzCymwtUQiW7Uq+7fYGcddFWN+29d7gyX9+yXyPAvq6kqniPgQyNLdbS4I9Zx/Uu2OfVc/A==}
     peerDependencies:
       hel-micro-core: ^4.7.2
       hel-types: ^4.3.0
     dependencies:
-      hel-micro-core: 4.7.2(hel-types@4.3.0)
-      hel-types: 4.3.0
+      hel-micro-core: 4.7.2(hel-types@4.3.1)
+      hel-types: 4.3.1
     dev: false
+    bundledDependencies: []
 
-  /hel-types@4.3.0:
-    resolution: {integrity: sha512-GqqFAYWxv1Z1AcYLvQlbBPjKTtplx7l5a8bL8jL5Q868hnxiyRz89NN5JVMR9EuP5+DJNehkQJFHA6f33ioNyA==}
+  /hel-types@4.3.1:
+    resolution: {integrity: sha512-xoGV1XV5KWvdnJg5TNdlavl1oy4KqZrBYu4YRriBFX2JpMvDT+J/r5pfobQAGCHB0Ars5ngU45slMPWaU/4V/A==}
     dev: false
 
   /html-encoding-sniffer@1.0.2:
@@ -2304,6 +2399,15 @@ packages:
     dependencies:
       whatwg-encoding: 1.0.5
     dev: true
+
+  /htmlparser2@9.0.0:
+    resolution: {integrity: sha512-uxbSI98wmFT/G4P2zXx4OVx04qWUmyFPrD2/CNepa2Zo3GPNaCaaxElDgwUrwYWkK1nr9fft0Ya8dws8coDLLQ==}
+    dependencies:
+      domelementtype: 2.3.0
+      domhandler: 5.0.3
+      domutils: 3.1.0
+      entities: 4.5.0
+    dev: false
 
   /http-proxy@1.18.1:
     resolution: {integrity: sha512-7mz/721AbnJwIVbnaSv1Cz3Am0ZLT/UBwkC92VlxhXv/k/BBQfM2fXElQNC27BVGr0uwUpplYPQM9LnaBMR5NQ==}
@@ -2583,6 +2687,12 @@ packages:
   /prelude-ls@1.1.2:
     resolution: {integrity: sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==}
     engines: {node: '>= 0.8.0'}
+    dev: true
+
+  /prettier@2.8.8:
+    resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: true
 
   /psl@1.9.0:
