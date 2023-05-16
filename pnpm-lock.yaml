@@ -99,8 +99,8 @@ importers:
         specifier: ^4.7.2
         version: 4.7.2(hel-micro-core@4.7.3)(hel-types@4.3.1)
       hel-micro:
-        specifier: ^4.7.5
-        version: 4.7.5(hel-micro-core@4.7.3)(hel-types@4.3.1)
+        specifier: ^4.7.6
+        version: 4.7.6(hel-micro-core@4.7.3)(hel-types@4.3.1)
       hel-types:
         specifier: ^4.3.1
         version: 4.3.1
@@ -2714,8 +2714,8 @@ packages:
     dev: false
     bundledDependencies: []
 
-  /hel-micro@4.7.5(hel-micro-core@4.7.3)(hel-types@4.3.1):
-    resolution: {integrity: sha512-x8ZHIlfXf8RNNR5TdUgOyyX3yO162ASbx4RPWVSh5BByVcCpG/P6gjZiDI40XlSi0ZIVxNnme45NM8whVowm4A==}
+  /hel-micro@4.7.6(hel-micro-core@4.7.3)(hel-types@4.3.1):
+    resolution: {integrity: sha512-Fv7C4860ZozB8bjxfBHpIfr6P2vmtXy4LL5WP2eZH2D4oa7UqJLc3pZpVQM/GmkRydmTuGMcNVqBPgTAnVI12g==}
     peerDependencies:
       hel-micro-core: ^4.7.3
       hel-types: ^4.3.1
@@ -2723,7 +2723,6 @@ packages:
       hel-micro-core: 4.7.3(hel-types@4.3.1)
       hel-types: 4.3.1
     dev: false
-    bundledDependencies: []
 
   /hel-types@4.3.1:
     resolution: {integrity: sha512-xoGV1XV5KWvdnJg5TNdlavl1oy4KqZrBYu4YRriBFX2JpMvDT+J/r5pfobQAGCHB0Ars5ngU45slMPWaU/4V/A==}
