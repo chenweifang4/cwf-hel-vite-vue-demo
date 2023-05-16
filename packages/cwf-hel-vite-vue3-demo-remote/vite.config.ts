@@ -8,7 +8,7 @@ import {
   CONFIG_PATH_PREFIX,
   CONFIG_DEV_HOST_PORT,
   CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE,
-} from "cwf-hel-vite-vue3-demo-configs";
+} from "cwf-hel-vite-vue-demo-configs";
 import legacy from "@vitejs/plugin-legacy";
 import viteCDNPlugin from "vite-plugin-cdn-import";
 

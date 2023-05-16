@@ -1,5 +1,5 @@
 {
-  "name": "cwf-hel-vite-vue3-demo-configs",
+  "name": "cwf-hel-vite-vue-demo-configs",
   "version": "1.0.0",
   "description": "common configs",
   "main": "dist/index.js",
@@ -17,10 +17,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@rollup/plugin-typescript": "^11.1.0",
-    "rollup": "^3.21.0",
-    "tslib": "^2.5.0",
-    "typescript": "^5.0.4"
-  }
+  "devDependencies": {}
 }

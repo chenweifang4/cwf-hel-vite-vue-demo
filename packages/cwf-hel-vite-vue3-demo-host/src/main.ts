@@ -4,7 +4,7 @@ import {
   CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_HOST,
   CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE,
   getConfigHost,
-} from "cwf-hel-vite-vue3-demo-configs";
+} from "cwf-hel-vite-vue-demo-configs";
 
 import { preFetchLib, bindVueRuntime } from "hel-micro";
 

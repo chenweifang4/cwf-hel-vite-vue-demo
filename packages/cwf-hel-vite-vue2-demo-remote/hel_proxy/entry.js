@@ -1,7 +1,7 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('hel-lib-proxy'), require('cwf-hel-vite-vue-demo-configs')) :
 	typeof define === 'function' && define.amd ? define(['exports', 'hel-lib-proxy', 'cwf-hel-vite-vue-demo-configs'], factory) :
-	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global["cwf-hel-vite-vue3-demo-remote"] = {}, global.helLibProxy, global.cwfHelViteVueDemoConfigs));
+	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global["cwf-hel-vite-vue2-demo-remote"] = {}, global.helLibProxy, global.cwfHelViteVueDemoConfigs));
 })(this, (function (exports, helLibProxy, cwfHelViteVueDemoConfigs) { 'use strict';
 
 	/*

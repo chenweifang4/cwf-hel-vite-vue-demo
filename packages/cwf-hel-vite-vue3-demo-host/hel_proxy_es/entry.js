@@ -1,5 +1,5 @@
-import { exposeLib } from 'hel-lib-proxy';
-import { CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_HOST } from 'cwf-hel-vite-vue3-demo-configs';
+import { exposeLib } from "hel-lib-proxy";
+import { CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_HOST } from "cwf-hel-vite-vue-demo-configs";
 
 /*
 |--------------------------------------------------------------------------

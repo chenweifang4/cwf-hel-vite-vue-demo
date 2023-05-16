@@ -1,7 +1,14 @@
 import { fileURLToPath, URL } from "node:url";
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { CONFIG_ENV_DEVELOPMENT, CONFIG_ENV_LOCAL, getConfigHost, CONFIG_PATH_PREFIX, CONFIG_DEV_HOST_PORT, CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_HOST  } from 'cwf-hel-vite-vue3-demo-configs'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import {
+  CONFIG_ENV_DEVELOPMENT,
+  CONFIG_ENV_LOCAL,
+  getConfigHost,
+  CONFIG_PATH_PREFIX,
+  CONFIG_DEV_HOST_PORT,
+  CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_HOST,
+} from "cwf-hel-vite-vue-demo-configs";
 import legacy from "@vitejs/plugin-legacy";
 
 // https://vitejs.dev/config/
@@ -12,12 +19,12 @@ export default defineConfig(({ mode }) => {
       : getConfigHost(CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_HOST);
 
   return {
-   base,
+    base,
     plugins: [
       vue(),
       legacy({
         targets: ["defaults", "not IE 11"],
-      })
+      }),
     ],
     server: {
       host: "0.0.0.0",
@@ -28,5 +35,5 @@ export default defineConfig(({ mode }) => {
         "@": fileURLToPath(new URL("./src", import.meta.url)),
       },
     },
-  }
-})
+  };
+});

@@ -1,10 +1,18 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('hel-lib-proxy'), require('cwf-hel-vite-vue3-demo-configs')) :
-	typeof define === 'function' && define.amd ? define(['exports', 'hel-lib-proxy', 'cwf-hel-vite-vue3-demo-configs'], factory) :
-	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global["cwf-hel-vite-vue3-demo-remote"] = {}, global.helLibProxy, global.cwfHelViteVue3DemoConfigs));
-})(this, (function (exports, helLibProxy, cwfHelViteVue3DemoConfigs) { 'use strict';
+  typeof exports === "object" && typeof module !== "undefined"
+    ? factory(exports, require("hel-lib-proxy"), require("cwf-hel-vite-vue-demo-configs"))
+    : typeof define === "function" && define.amd
+    ? define(["exports", "hel-lib-proxy", "cwf-hel-vite-vue-demo-configs"], factory)
+    : ((global = typeof globalThis !== "undefined" ? globalThis : global || self),
+      factory(
+        (global["cwf-hel-vite-vue3-demo-remote"] = {}),
+        global.helLibProxy,
+        global.cwfHelViteVue3DemoConfigs
+      ));
+})(this, function (exports, helLibProxy, cwfHelViteVue3DemoConfigs) {
+  "use strict";
 
-	/*
+  /*
 	|--------------------------------------------------------------------------
 	|
 	| 组件类型导出文件，同时也作为 rollup 的打包入口文件，因只提供类型，rollup 打包后是一个
@@ -14,14 +22,15 @@
 	|
 	|--------------------------------------------------------------------------
 	*/
-	/**
-	 * 将提供给用户的lib暴露出去（同时也暴露了类型）
-	 */
-	const dtlib = helLibProxy.exposeLib(cwfHelViteVue3DemoConfigs.CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_HOST);
+  /**
+   * 将提供给用户的lib暴露出去（同时也暴露了类型）
+   */
+  const dtlib = helLibProxy.exposeLib(
+    cwfHelViteVue3DemoConfigs.CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_HOST
+  );
 
-	exports.default = dtlib;
-	exports.dtlib = dtlib;
+  exports.default = dtlib;
+  exports.dtlib = dtlib;
 
-	Object.defineProperty(exports, '__esModule', { value: true });
-
-}));
+  Object.defineProperty(exports, "__esModule", { value: true });
+});

@@ -1,6 +1,6 @@
 import { isMasterApp } from "hel-iso";
 import { libReady } from "hel-lib-proxy";
-import { CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE } from "cwf-hel-vite-vue3-demo-configs";
+import { CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE } from "cwf-hel-vite-vue-demo-configs";
 
 (async function () {
   const lib_properties = await import("./entrance/lib-properties");

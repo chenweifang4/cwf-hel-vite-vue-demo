@@ -6,9 +6,9 @@ const { HelloWorld: RemoteHelloWorld } = RemoteComps;
 </script>
 
 <template>
-  <HelloWorld msg="Host HelloWorld.vue" />
+  <HelloWorld msg="Vue3 Host HelloWorld" />
 
-  <RemoteHelloWorld msg="Remote HelloWorld.vue"></RemoteHelloWorld>
+  <RemoteHelloWorld msg="Vue3 Remote HelloWorld"></RemoteHelloWorld>
 </template>
 
 <style scoped></style>
