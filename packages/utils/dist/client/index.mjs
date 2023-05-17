@@ -1,25 +1,4 @@
-'use strict';
-
-var htmlparser2 = require('htmlparser2');
-
-function _interopNamespaceDefault(e) {
-    var n = Object.create(null);
-    if (e) {
-        Object.keys(e).forEach(function (k) {
-            if (k !== 'default') {
-                var d = Object.getOwnPropertyDescriptor(e, k);
-                Object.defineProperty(n, k, d.get ? d : {
-                    enumerable: true,
-                    get: function () { return e[k]; }
-                });
-            }
-        });
-    }
-    n.default = e;
-    return Object.freeze(n);
-}
-
-var htmlparser2__namespace = /*#__PURE__*/_interopNamespaceDefault(htmlparser2);
+import * as htmlparser2 from 'htmlparser2';
 
 /******************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -78,7 +57,7 @@ var parseHtml = function (html) {
             lastItem.innerText = lastItem.innerText + innerText;
         }
     }
-    var parser = new htmlparser2__namespace.Parser({
+    var parser = new htmlparser2.Parser({
         onopentag: recordTagOpen,
         ontext: recordTagText,
         onclosetag: function (tag) {
@@ -95,4 +74,4 @@ var parseHtml = function (html) {
     };
 };
 
-exports.parseHtml = parseHtml;
+export { parseHtml };

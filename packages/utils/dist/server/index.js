@@ -1,18 +1,88 @@
-"use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
+'use strict';
+
+var node_path = require('node:path');
+var node_fs = require('node:fs');
+var http = require('http');
+var httpProxy = require('http-proxy');
+
+/**
+ * @description 根据文件扩展名获取 Content-Type
+ * @param   {string}  file_path  [file_path description]
+ * @return  {[type]}             [return description]
+ */
+var getContentType = function (file_path) {
+    var ext_name = node_path.extname(file_path);
+    switch (ext_name) {
+        case ".html":
+            return "text/html";
+        case ".css":
+            return "text/css";
+        case ".js":
+            return "text/javascript";
+        case ".json":
+            return "application/json";
+        case ".png":
+            return "image/png";
+        case ".jpg":
+            return "image/jpg";
+        default:
+            return "application/octet-stream";
     }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./server"), exports);
-//# sourceMappingURL=index.js.map
+
+var proxy = httpProxy.createProxyServer({});
+var createServer = function (server_config) {
+    var app_name = server_config.app_name, port = server_config.port, api_prefix = server_config.api_prefix, api_url = server_config.api_url;
+    if (!port) {
+        throw new Error("port is required!");
+    }
+    // 获取请求的文件路径
+    var file_path;
+    var app = http.createServer(function (req, res) {
+        var _a, _b, _c;
+        // 设置允许跨域请求的响应头
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Methods", "*");
+        res.setHeader("Access-Control-Allow-Headers", "*");
+        // FIXME: Response to preflight request doesn't pass access control check: It does not have HTTP ok status.
+        if (req.method === "OPTIONS") {
+            // 处理预检请求
+            res.writeHead(200);
+            res.end();
+            return;
+        }
+        if (api_prefix && api_url && ((_a = req.url) === null || _a === void 0 ? void 0 : _a.startsWith(api_prefix))) {
+            proxy.web(req, res, {
+                target: api_url,
+                changeOrigin: true,
+            });
+            return;
+        }
+        else if ((_b = req.url) === null || _b === void 0 ? void 0 : _b.startsWith("/".concat(app_name, "/assets"))) {
+            file_path = node_path.join(__dirname, "../../../".concat(app_name, "/dist"), (_c = req.url) === null || _c === void 0 ? void 0 : _c.replace("/".concat(app_name), ""))
+                // 有些图片有加上指定后缀处理，这里需要截取
+                .split("?")[0];
+        }
+        else {
+            file_path = node_path.join(__dirname, "../../../".concat(app_name, "/dist"), "index.html");
+        }
+        try {
+            node_fs.accessSync(file_path, node_fs.constants.F_OK);
+            var data = node_fs.readFileSync(file_path);
+            var content_type = getContentType(file_path);
+            // 设置响应头
+            res.setHeader("Content-Type", content_type);
+            // 返回文件内容
+            res.end(data);
+        }
+        catch (error) {
+            console.error(error);
+        }
+    });
+    // 启动服务器
+    app.listen(port, function () {
+        console.log("Server:".concat(app_name.toUpperCase(), "   \u279C  http://localhost:").concat(port));
+    });
+};
+
+exports.createServer = createServer;

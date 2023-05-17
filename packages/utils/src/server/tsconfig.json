@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "outDir": "dist/server",
+    "strict": true,
+    "declaration": true
+  },
+  "include": ["./**/*.ts"]
+}

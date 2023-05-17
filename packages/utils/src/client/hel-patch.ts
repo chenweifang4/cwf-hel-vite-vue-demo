@@ -22,7 +22,7 @@ export const parseHtml = (html: string) => {
       // if (attrs.src && attrs.src.indexOf("vue@") > -1) {
       //   return;
       // }
-      console.log("[parseHtml][recordTagOpen] attrs ", attrs, attrs.src);
+      // console.log("[parseHtml][recordTagOpen] attrs ", attrs, attrs.src);
       tagDataList.push({ data: { tag, attrs, innerText: "" }, toHead: isHeadOpen });
     }
     if (tag === "link" && attrs.rel !== "icon") {

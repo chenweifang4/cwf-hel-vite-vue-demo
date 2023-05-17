@@ -5,23 +5,24 @@
   "main": "dist/server/index.js",
   "module": "dist/server/index.js",
   "scripts": {
+    "build:rollup": "rollup -c",
     "build": "tsc -p ./tsconfig.json"
   },
   "exports": {
     ".": {
-      "types": "./dist/server/index.d.ts",
+      "types": "./dist/server/types/index.d.ts",
       "require": "./dist/server/index.js",
       "import": "./dist/server/index.js"
     },
     "./server": {
-      "types": "./dist/server/index.d.ts",
+      "types": "./dist/server/types/index.d.ts",
       "require": "./dist/server/index.js",
-      "import": "./dist/server/index.js"
+      "import": "./dist/server/index.mjs"
     },
     "./client": {
-      "types": "./dist/client/index.d.ts",
+      "types": "./dist/client/types/index.d.ts",
       "require": "./dist/client/index.js",
-      "import": "./dist/client/index.js"
+      "import": "./dist/client/index.mjs"
     }
   },
   "keywords": [],

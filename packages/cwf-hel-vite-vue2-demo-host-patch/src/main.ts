@@ -6,7 +6,7 @@ import {
   CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_HOST_PATCH,
 } from "cwf-hel-vite-vue-demo-configs";
 import { preFetchLib, bindVueRuntime } from "hel-micro";
-import { parseHtml } from "@/utils/hel-patch";
+import { parseHtml } from "cwf-hel-vite-vue-demo-utils/client";
 
 (async function () {
   const lib_properties = await import("./entrance/lib-properties");
