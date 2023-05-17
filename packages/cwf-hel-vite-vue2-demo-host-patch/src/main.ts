@@ -1,3 +1,4 @@
+import * as Vue from "vue";
 import { isMasterApp } from "hel-iso";
 import { libReady } from "hel-lib-proxy";
 import {
@@ -7,6 +8,8 @@ import {
 } from "cwf-hel-vite-vue-demo-configs";
 import { preFetchLib, bindVueRuntime } from "hel-micro";
 import { parseHtml } from "cwf-hel-vite-vue-demo-utils/client";
+
+bindVueRuntime({ Vue });
 
 (async function () {
   const lib_properties = await import("./entrance/lib-properties");

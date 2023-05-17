@@ -83,4 +83,14 @@ var createServer = function (server_config) {
     });
 };
 
-export { createServer };
+var helIgnoreVueHtmlTransfromPlugin = function (src) {
+    return {
+        name: "hel-ignore-vue-html-transform",
+        transformIndexHtml: function (html) {
+            html = html.replace("<script src=\"".concat(src, "\"></script>"), "<script data-helappend=\"0\" src=\"".concat(src, "\"></script>"));
+            return html;
+        },
+    };
+};
+
+export { createServer, helIgnoreVueHtmlTransfromPlugin };
