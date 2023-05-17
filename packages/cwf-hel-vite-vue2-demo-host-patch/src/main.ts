@@ -3,26 +3,28 @@ import { libReady } from "hel-lib-proxy";
 import {
   getConfigHost,
   CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_REMOTE,
-  CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_HOST,
+  CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_HOST_PATCH,
 } from "cwf-hel-vite-vue-demo-configs";
 import { preFetchLib, bindVueRuntime } from "hel-micro";
+import { parseHtml } from "@/utils/hel-patch";
 
 (async function () {
   const lib_properties = await import("./entrance/lib-properties");
   // 注意此处传递的是 default
-  libReady(CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_HOST, lib_properties.default);
+  libReady(CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_HOST_PATCH, lib_properties.default);
 
   const enable_custom = !!window.location.port;
   const host = getConfigHost(CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_REMOTE).replace(/\/$/, "");
 
-  console.log("[cwf-hel-vite-vue2-demo-host] enable_custom", enable_custom);
-  console.log("[cwf-hel-vite-vue2-demo-host] remote host", host);
+  console.log("[cwf-hel-vite-vue2-demo-host-patch] enable_custom", enable_custom);
+  console.log("[cwf-hel-vite-vue2-demo-host-patch] remote host", host);
 
   await preFetchLib(CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_REMOTE, {
     custom: {
       host,
       skipFetchHelMeta: true,
       enable: enable_custom,
+      parseHtml,
     },
   });
 
