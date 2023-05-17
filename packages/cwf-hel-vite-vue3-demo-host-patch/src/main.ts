@@ -1,3 +1,4 @@
+import * as Vue from "vue";
 import { isMasterApp } from "hel-iso";
 import { libReady } from "hel-lib-proxy";
 import {
@@ -7,10 +8,10 @@ import {
 } from "cwf-hel-vite-vue-demo-configs";
 
 import { preFetchLib, bindVueRuntime } from "hel-micro";
-import { parseHtml } from "cwf-hel-vite-vue-demo-utils";
-import * as Vue from "vue";
+import { parseHtml } from "@/utils/hel-patch";
+// import { parseHtml } from "cwf-hel-vite-vue-demo-utils/client";
 
-console.log("parseHtml", parseHtml);
+// console.log("parseHtml", parseHtml);
 
 bindVueRuntime({ Vue });
 

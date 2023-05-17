@@ -1,7 +1,7 @@
 import * as htmlparser2 from "htmlparser2";
 import type { IAssetItem, IAssetItemAttrs } from "hel-types";
 
-export function parseHtml(html: string) {
+export const parseHtml = (html: string) => {
   let isHeadOpen = true;
   const headAssetList: IAssetItem[] = [];
   const bodyAssetList: IAssetItem[] = [];
@@ -51,4 +51,4 @@ export function parseHtml(html: string) {
     headAssetList,
     bodyAssetList,
   };
-}
+};

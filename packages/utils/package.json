@@ -2,16 +2,26 @@
   "name": "cwf-hel-vite-vue-demo-utils",
   "version": "1.0.0",
   "description": "common uitls",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "main": "dist/server/index.js",
+  "module": "dist/server/index.js",
   "scripts": {
-    "build": "rollup -c"
+    "build": "tsc -p ./tsconfig.json"
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "types": "./dist/server/index.d.ts",
+      "require": "./dist/server/index.js",
+      "import": "./dist/server/index.js"
+    },
+    "./server": {
+      "types": "./dist/server/index.d.ts",
+      "require": "./dist/server/index.js",
+      "import": "./dist/server/index.js"
+    },
+    "./client": {
+      "types": "./dist/client/index.d.ts",
+      "require": "./dist/client/index.js",
+      "import": "./dist/client/index.js"
     }
   },
   "keywords": [],

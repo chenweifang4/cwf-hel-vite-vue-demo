@@ -9,7 +9,7 @@
 |--------------------------------------------------------------------------
 */
 import { exposeLib } from "hel-lib-proxy";
-import { CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE } from "cwf-hel-vite-vue-demo-configs";
+import { CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_REMOTE } from "cwf-hel-vite-vue-demo-configs";
 
 export type CompTypes = {
   HelloWorld: {
@@ -20,6 +20,6 @@ export type CompTypes = {
 /**
  * 将提供给用户的lib暴露出去（同时也暴露了类型）
  */
-export const dtlib = exposeLib<CompTypes>(CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE);
+export const dtlib = exposeLib<CompTypes>(CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_REMOTE);
 
 export default dtlib;

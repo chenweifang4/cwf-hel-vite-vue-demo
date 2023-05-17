@@ -26,7 +26,7 @@
    * 将提供给用户的lib暴露出去（同时也暴露了类型）
    */
   const dtlib = helLibProxy.exposeLib(
-    cwfHelViteVueDemoConfigs.CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE
+    cwfHelViteVueDemoConfigs.CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_REMOTE
   );
 
   exports.default = dtlib;

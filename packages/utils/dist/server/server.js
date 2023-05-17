@@ -38,12 +38,12 @@ var createServer = function (server_config) {
             return;
         }
         else if ((_b = req.url) === null || _b === void 0 ? void 0 : _b.startsWith("/".concat(app_name, "/assets"))) {
-            file_path = (0, node_path_1.join)(__dirname, "../../".concat(app_name, "/dist"), (_c = req.url) === null || _c === void 0 ? void 0 : _c.replace("/".concat(app_name), ""))
+            file_path = (0, node_path_1.join)(__dirname, "../../../".concat(app_name, "/dist"), (_c = req.url) === null || _c === void 0 ? void 0 : _c.replace("/".concat(app_name), ""))
                 // 有些图片有加上指定后缀处理，这里需要截取
                 .split("?")[0];
         }
         else {
-            file_path = (0, node_path_1.join)(__dirname, "../../".concat(app_name, "/dist"), "index.html");
+            file_path = (0, node_path_1.join)(__dirname, "../../../".concat(app_name, "/dist"), "index.html");
         }
         try {
             (0, node_fs_1.accessSync)(file_path, node_fs_1.constants.F_OK);

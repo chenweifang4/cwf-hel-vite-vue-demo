@@ -43,11 +43,11 @@ export const createServer = (server_config: ServerConfig) => {
       });
       return;
     } else if (req.url?.startsWith(`/${app_name}/assets`)) {
-      file_path = join(__dirname, `../../${app_name}/dist`, req.url?.replace(`/${app_name}`, ""))
+      file_path = join(__dirname, `../../../${app_name}/dist`, req.url?.replace(`/${app_name}`, ""))
         // 有些图片有加上指定后缀处理，这里需要截取
         .split("?")[0];
     } else {
-      file_path = join(__dirname, `../../${app_name}/dist`, "index.html");
+      file_path = join(__dirname, `../../../${app_name}/dist`, "index.html");
     }
 
     try {

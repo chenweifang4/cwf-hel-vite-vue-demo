@@ -36,7 +36,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parseHtml = void 0;
 var htmlparser2 = __importStar(require("htmlparser2"));
-function parseHtml(html) {
+var parseHtml = function (html) {
     var isHeadOpen = true;
     var headAssetList = [];
     var bodyAssetList = [];
@@ -80,6 +80,6 @@ function parseHtml(html) {
         headAssetList: headAssetList,
         bodyAssetList: bodyAssetList,
     };
-}
+};
 exports.parseHtml = parseHtml;
 //# sourceMappingURL=hel-patch.js.map

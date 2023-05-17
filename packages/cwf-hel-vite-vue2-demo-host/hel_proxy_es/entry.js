@@ -1,5 +1,5 @@
-import { exposeLib } from 'hel-lib-proxy';
-import { CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE } from 'cwf-hel-vite-vue-demo-configs';
+import { exposeLib } from "hel-lib-proxy";
+import { CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_REMOTE } from "cwf-hel-vite-vue-demo-configs";
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +14,6 @@ import { CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE } from 'cwf-hel-vite-vue-d
 /**
  * 将提供给用户的lib暴露出去（同时也暴露了类型）
  */
-const dtlib = exposeLib(CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE);
+const dtlib = exposeLib(CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_REMOTE);
 
 export { dtlib as default, dtlib };

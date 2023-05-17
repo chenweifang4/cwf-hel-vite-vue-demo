@@ -4,7 +4,7 @@ import HelloWorld from "./components/HelloWorld.vue";
 
 const { HelloWorld: RemoteHelloWorld } = RemoteComps;
 
-console.log("RemoteHelloWorld", RemoteHelloWorld);
+console.log("RemoteComps", RemoteComps);
 </script>
 
 <template>
