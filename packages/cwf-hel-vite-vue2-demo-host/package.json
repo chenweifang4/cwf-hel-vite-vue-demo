@@ -1,0 +1,24 @@
+{
+  "name": "cwf-hel-vite-vue2-demo-host",
+  "appGroupName": "cwf-hel-vite-vue2-demo-host",
+  "main": "./hel_proxy/entry.js",
+  "module": "./hel_proxy_es/entry.js",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && pnpm build:proxy",
+    "build:proxy": "rollup -c",
+    "preview": "cross-env node scripts/serve.mjs",
+    "format": "cross-env prettier ./src/*  --write"
+  },
+  "dependencies": {
+    "cwf-hel-vite-vue2-demo-remote": "workspace:*",
+    "cwf-hel-vite-vue-demo-configs": "workspace:*",
+    "cwf-hel-vite-vue-demo-utils": "workspace:*",
+    "vue": "^2.7.14"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue2": "^2.2.0"
+  }
+}

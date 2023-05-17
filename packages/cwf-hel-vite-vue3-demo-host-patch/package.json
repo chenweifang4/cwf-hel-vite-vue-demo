@@ -11,9 +11,9 @@
     "format": "cross-env prettier ./src/*  --write"
   },
   "dependencies": {
+    "cwf-hel-vite-vue-demo-utils": "workspace:*",
     "cwf-hel-vite-vue-demo-configs": "workspace:*",
     "cwf-hel-vite-vue3-demo-remote": "workspace:*",
-    "cwf-hel-vite-vue-demo-utils": "workspace:*",
     "htmlparser2": "^9.0.0",
     "vue": "^3.2.47"
   },

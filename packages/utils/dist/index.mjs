@@ -1,29 +1,8 @@
-'use strict';
-
-var node_path = require('node:path');
-var node_fs = require('node:fs');
-var http = require('http');
-var httpProxy = require('http-proxy');
-var htmlparser2 = require('htmlparser2');
-
-function _interopNamespaceDefault(e) {
-    var n = Object.create(null);
-    if (e) {
-        Object.keys(e).forEach(function (k) {
-            if (k !== 'default') {
-                var d = Object.getOwnPropertyDescriptor(e, k);
-                Object.defineProperty(n, k, d.get ? d : {
-                    enumerable: true,
-                    get: function () { return e[k]; }
-                });
-            }
-        });
-    }
-    n.default = e;
-    return Object.freeze(n);
-}
-
-var htmlparser2__namespace = /*#__PURE__*/_interopNamespaceDefault(htmlparser2);
+import { extname, join } from 'node:path';
+import { accessSync, constants, readFileSync } from 'node:fs';
+import http from 'http';
+import httpProxy from 'http-proxy';
+import * as htmlparser2 from 'htmlparser2';
 
 /**
  * @description 根据文件扩展名获取 Content-Type
@@ -31,7 +10,7 @@ var htmlparser2__namespace = /*#__PURE__*/_interopNamespaceDefault(htmlparser2);
  * @return  {[type]}             [return description]
  */
 var getContentType = function (file_path) {
-    var ext_name = node_path.extname(file_path);
+    var ext_name = extname(file_path);
     switch (ext_name) {
         case ".html":
             return "text/html";
@@ -79,16 +58,16 @@ var createServer = function (server_config) {
             return;
         }
         else if ((_b = req.url) === null || _b === void 0 ? void 0 : _b.startsWith("/".concat(app_name, "/assets"))) {
-            file_path = node_path.join(__dirname, "../../".concat(app_name, "/dist"), (_c = req.url) === null || _c === void 0 ? void 0 : _c.replace("/".concat(app_name), ""))
+            file_path = join(__dirname, "../../".concat(app_name, "/dist"), (_c = req.url) === null || _c === void 0 ? void 0 : _c.replace("/".concat(app_name), ""))
                 // 有些图片有加上指定后缀处理，这里需要截取
                 .split("?")[0];
         }
         else {
-            file_path = node_path.join(__dirname, "../../".concat(app_name, "/dist"), "index.html");
+            file_path = join(__dirname, "../../".concat(app_name, "/dist"), "index.html");
         }
         try {
-            node_fs.accessSync(file_path, node_fs.constants.F_OK);
-            var data = node_fs.readFileSync(file_path);
+            accessSync(file_path, constants.F_OK);
+            var data = readFileSync(file_path);
             var content_type = getContentType(file_path);
             // 设置响应头
             res.setHeader("Content-Type", content_type);
@@ -162,7 +141,7 @@ function parseHtml(html) {
             lastItem.innerText = lastItem.innerText + innerText;
         }
     }
-    var parser = new htmlparser2__namespace.Parser({
+    var parser = new htmlparser2.Parser({
         onopentag: recordTagOpen,
         ontext: recordTagText,
         onclosetag: function (tag) {
@@ -179,5 +158,4 @@ function parseHtml(html) {
     };
 }
 
-exports.createServer = createServer;
-exports.parseHtml = parseHtml;
+export { createServer, parseHtml };

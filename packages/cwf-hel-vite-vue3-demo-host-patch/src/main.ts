@@ -7,12 +7,10 @@ import {
 } from "cwf-hel-vite-vue-demo-configs";
 
 import { preFetchLib, bindVueRuntime } from "hel-micro";
-import { parseHtml } from "@/utils/hel-patch";
+import { parseHtml } from "cwf-hel-vite-vue-demo-utils";
 import * as Vue from "vue";
 
-// debugger;
-
-console.log("Vue", Vue);
+console.log("parseHtml", parseHtml);
 
 bindVueRuntime({ Vue });
 

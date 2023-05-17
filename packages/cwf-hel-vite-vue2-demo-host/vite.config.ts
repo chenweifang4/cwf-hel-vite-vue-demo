@@ -10,15 +10,15 @@ import {
   getConfigHost,
   CONFIG_PATH_PREFIX,
   CONFIG_DEV_HOST_PORT,
-  CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_REMOTE,
+  CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_HOST,
 } from "cwf-hel-vite-vue-demo-configs";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const base =
     mode === CONFIG_ENV_DEVELOPMENT
-      ? CONFIG_PATH_PREFIX[CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_REMOTE]
-      : getConfigHost(CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_REMOTE, CONFIG_ENV_LOCAL);
+      ? CONFIG_PATH_PREFIX[CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_HOST]
+      : getConfigHost(CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_HOST, CONFIG_ENV_LOCAL);
 
   return {
     base,
@@ -30,7 +30,7 @@ export default defineConfig(({ mode }) => {
     ],
     server: {
       host: "0.0.0.0",
-      port: CONFIG_DEV_HOST_PORT[CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_REMOTE],
+      port: CONFIG_DEV_HOST_PORT[CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_HOST],
     },
     resolve: {
       alias: {
