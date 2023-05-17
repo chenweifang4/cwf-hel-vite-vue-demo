@@ -14,8 +14,7 @@ pnpm install
 
 ```bash
 cd /packages/cwf-hel-vite-vue3-demo-remote
-pnpm build
-pnpm preview
+pnpm build && pnpm preview
 ```
 
 ### cwf-hel-vite-vue3-demo-host
@@ -46,8 +45,7 @@ pnpm dev
 
 ```bash
 cd /packages/cwf-hel-vite-vue2-demo-remote
-pnpm build
-pnpm preview
+pnpm build && pnpm preview
 ```
 
 ### cwf-hel-vite-vue2-demo-host
