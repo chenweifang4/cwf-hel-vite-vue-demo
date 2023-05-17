@@ -5,8 +5,7 @@
   "main": "dist/server/index.js",
   "module": "dist/server/index.js",
   "scripts": {
-    "build:rollup": "rollup -c",
-    "build": "tsc -p ./tsconfig.json"
+    "build": "rollup -c"
   },
   "exports": {
     ".": {
