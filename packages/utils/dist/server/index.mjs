@@ -27,6 +27,23 @@ var getContentType = function (file_path) {
             return "application/octet-stream";
     }
 };
+var addDataHelappendAttribute = function (html, options) {
+    var urls = options.urls, _a = options.value, value = _a === void 0 ? 0 : _a;
+    var urlArray = Array.isArray(urls) ? urls : [urls];
+    var regex = /(<link[^>]*rel="(?:stylesheet|modulepreload)"[^>]*href="([^"]+)")[^>]*>|(<script[^>]*src="([^"]+)")[^>]*>/gi;
+    // /(<link[^>]*rel="(?:stylesheet|modulepreload)"[^>]*href="([^"]+)")[^>]*>|(<script[^>]*type="module"[^>]*src="([^"]+)")[^>]*>|(<script[^>]*nomodule[^>]*src="([^"]+)")[^>]*>/gi;
+    var result = html.replace(regex, function (match, linkOpen, linkHref, scriptOpen, scriptSrc) {
+        var href = linkHref || scriptSrc;
+        if (href && urlArray.some(function (url) { return href.includes(url); })) {
+            var tag = linkOpen || scriptOpen;
+            return "".concat(tag, " data-helappend=\"").concat(value, "\">");
+        }
+        else {
+            return match;
+        }
+    });
+    return result;
+};
 
 var proxy = httpProxy.createProxyServer({});
 var createServer = function (server_config) {
@@ -83,14 +100,14 @@ var createServer = function (server_config) {
     });
 };
 
-var helIgnoreVueHtmlTransfromPlugin = function (src) {
+var addDataHelappendAttributeVueHtmlTransfromPlugin = function (options) {
     return {
-        name: "hel-ignore-vue-html-transform",
+        name: "add-data-hel-append-attribute-vue-html-transform",
         transformIndexHtml: function (html) {
-            html = html.replace("<script src=\"".concat(src, "\"></script>"), "<script data-helappend=\"0\" src=\"".concat(src, "\"></script>"));
+            html = addDataHelappendAttribute(html, options);
             return html;
         },
     };
 };
 
-export { createServer, helIgnoreVueHtmlTransfromPlugin };
+export { addDataHelappendAttributeVueHtmlTransfromPlugin, createServer };

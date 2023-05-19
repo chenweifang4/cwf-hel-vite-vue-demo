@@ -14,7 +14,7 @@ import {
   CONFIG_SUB_APP_CWF_HEL_VITE_VUE2_DEMO_REMOTE,
 } from "cwf-hel-vite-vue-demo-configs";
 
-import { helIgnoreVueHtmlTransfromPlugin } from "cwf-hel-vite-vue-demo-utils";
+import { addDataHelappendAttributeVueHtmlTransfromPlugin } from "cwf-hel-vite-vue-demo-utils";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -41,7 +41,10 @@ export default defineConfig(({ mode }) => {
           },
         ],
       }),
-      helIgnoreVueHtmlTransfromPlugin(`https://unpkg.com/vue@2.7.14/dist/vue.js`),
+      addDataHelappendAttributeVueHtmlTransfromPlugin({
+        urls: [`https://unpkg.com/vue@2.7.14/dist/vue.js`],
+        value: 0,
+      }),
     ],
     server: {
       host: "0.0.0.0",

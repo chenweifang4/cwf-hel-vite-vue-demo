@@ -11,7 +11,7 @@ import {
 } from "cwf-hel-vite-vue-demo-configs";
 import legacy from "@vitejs/plugin-legacy";
 import viteCDNPlugin from "vite-plugin-cdn-import";
-import { helIgnoreVueHtmlTransfromPlugin } from "cwf-hel-vite-vue-demo-utils";
+import { addDataHelappendAttributeVueHtmlTransfromPlugin } from "cwf-hel-vite-vue-demo-utils";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -38,9 +38,10 @@ export default defineConfig(({ mode }) => {
           },
         ],
       }),
-      helIgnoreVueHtmlTransfromPlugin(
-        `https://unpkg.com/vue@3.2.27/dist/vue.runtime.global.prod.js`
-      ),
+      addDataHelappendAttributeVueHtmlTransfromPlugin({
+        urls: [`https://unpkg.com/vue@3.2.27/dist/vue.runtime.global.prod.js`],
+        value: 0,
+      }),
     ],
     server: {
       host: "0.0.0.0",

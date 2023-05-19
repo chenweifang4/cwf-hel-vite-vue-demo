@@ -24,3 +24,30 @@ export const getContentType = (file_path: string) => {
       return "application/octet-stream";
   }
 };
+
+export interface AddDataHelappendAttributeOptions {
+  urls: string | string[];
+  value?: number; // 0, 1
+}
+
+export const addDataHelappendAttribute = (
+  html: string,
+  options: AddDataHelappendAttributeOptions
+): string => {
+  const { urls, value = 0 } = options;
+  const urlArray = Array.isArray(urls) ? urls : [urls];
+  const regex =
+    /(<link[^>]*rel="(?:stylesheet|modulepreload)"[^>]*href="([^"]+)")[^>]*>|(<script[^>]*src="([^"]+)")[^>]*>/gi;
+
+  // /(<link[^>]*rel="(?:stylesheet|modulepreload)"[^>]*href="([^"]+)")[^>]*>|(<script[^>]*type="module"[^>]*src="([^"]+)")[^>]*>|(<script[^>]*nomodule[^>]*src="([^"]+)")[^>]*>/gi;
+  const result = html.replace(regex, (match, linkOpen, linkHref, scriptOpen, scriptSrc) => {
+    const href = linkHref || scriptSrc;
+    if (href && urlArray.some((url: string) => href.includes(url))) {
+      const tag = linkOpen || scriptOpen;
+      return `${tag} data-helappend="${value}">`;
+    } else {
+      return match;
+    }
+  });
+  return result;
+};
