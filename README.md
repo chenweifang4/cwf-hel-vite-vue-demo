@@ -28,7 +28,7 @@ pnpm dev
 
 ### cwf-hel-vite-vue3-demo-host-patch
 
-> 这个仓库用来演示如何通过自定义个 parseHtml 的 custom api，规避 hel 对 vite 支持的称为
+> 这个仓库用来演示如何通过自定义 parseHtml 的 custom api，使 hel 支持 vite 构建产物
 
 ```bash
 cd /packages/cwf-hel-vite-vue3-demo-host-patch
@@ -59,7 +59,7 @@ pnpm dev
 
 ### cwf-hel-vite-vue2-demo-host-patch
 
-> 这个仓库用来演示如何通过自定义个 parseHtml 的 custom api，规避 hel 对 vite 支持的称为
+> 这个仓库用来演示如何通过自定义 parseHtml 的 custom api，使 hel 支持 vite 构建产物
 
 ```bash
 cd /packages/cwf-hel-vite-vue2-demo-host-patch
