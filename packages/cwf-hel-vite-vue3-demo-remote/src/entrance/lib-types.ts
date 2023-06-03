@@ -13,7 +13,7 @@ import { CONFIG_SUB_APP_CWF_HEL_VITE_VUE3_DEMO_REMOTE } from "cwf-hel-vite-vue-d
 
 export type CompTypes = {
   HelloWorld: {
-    name: string;
+    msg: string;
   };
 };
 

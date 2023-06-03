@@ -5,6 +5,13 @@
   "module": "./hel_proxy_es/entry.js",
   "private": true,
   "version": "1.0.0",
+  "exports": {
+    ".": {
+      "types": "./src/entrance/lib-types.ts",
+      "require": "./hel_proxy/entry.js",
+      "import": "./hel_proxy/entry.js"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build && pnpm build:proxy",
