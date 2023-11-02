@@ -9,7 +9,7 @@
     ".": {
       "types": "./src/entrance/lib-types.ts",
       "require": "./hel_proxy/entry.js",
-      "import": "./hel_proxy/entry.js"
+      "import": "./hel_proxy_es/entry.js"
     }
   },
   "scripts": {

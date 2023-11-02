@@ -87,6 +87,25 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0(vite@4.3.6)(vue@2.7.14)
 
+  packages/cwf-hel-vite-vue2-demo-host-patch:
+    dependencies:
+      cwf-hel-vite-vue-demo-configs:
+        specifier: workspace:*
+        version: link:../configs
+      cwf-hel-vite-vue-demo-utils:
+        specifier: workspace:*
+        version: link:../utils
+      cwf-hel-vite-vue2-demo-remote:
+        specifier: workspace:*
+        version: link:../cwf-hel-vite-vue2-demo-remote
+      vue:
+        specifier: ^2.7.14
+        version: 2.7.14
+    devDependencies:
+      '@vitejs/plugin-vue2':
+        specifier: ^2.2.0
+        version: 2.2.0(vite@4.3.6)(vue@2.7.14)
+
   packages/cwf-hel-vite-vue2-demo-remote:
     dependencies:
       cwf-hel-vite-vue-demo-configs:
@@ -3533,7 +3552,7 @@ packages:
     dev: false
 
   /verror@1.10.0:
-    resolution: {integrity: sha1-OhBcoXBTr1XW4nDB+CiGguGNpAA=}
+    resolution: {integrity: sha512-ZZKSmDAEFOijERBLkmYfJ+vmk3w+7hOLYDNkRCuRuMJGEmqYNCNLyBBFwWKVMhfwaEF3WOd0Zlw86U/WC/+nYw==}
     engines: {'0': node >=0.6.0}
     dependencies:
       assert-plus: 1.0.0
